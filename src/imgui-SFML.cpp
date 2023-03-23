@@ -24,6 +24,9 @@
 #include <algorithm>
 #include <memory>
 #include <vector>
+#ifdef HAS_IMPLOT
+#include "implot.h"
+#endif
 
 #if SFML_VERSION_MAJOR >= 3
 #define IMGUI_SFML_KEY_APOSTROPHE sf::Keyboard::Apostrophe
@@ -221,6 +224,9 @@ struct WindowContext {
     WindowContext(const sf::Window* w) {
         window = w;
         imContext = ImGui::CreateContext();
+#ifdef HAS_IMPLOT
+        ImPlot::CreateContext();
+#endif
 
         windowHasFocus = window->hasFocus();
         mouseMoved = false;
