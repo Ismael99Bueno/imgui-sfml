@@ -252,7 +252,12 @@ struct WindowContext {
 #endif
     }
 
-    ~WindowContext() { ImGui::DestroyContext(imContext); }
+    ~WindowContext() {
+#ifdef HAS_IMPLOT
+        ImPlot::DestroyContext();
+#endif
+        ImGui::DestroyContext(imContext);
+    }
 };
 
 std::vector<std::unique_ptr<WindowContext>> s_windowContexts;
