@@ -6,7 +6,7 @@ project "imgui-sfml"
    defines "GL_SILENCE_DEPRECATION"
 
    targetdir("bin/" .. outputdir)
-   objdir("build/" .. outputdir .. "/%{prj.name}")
+   objdir("build/" .. outputdir)
 
    files {"src/**.cpp", "include/**.h"}
 
