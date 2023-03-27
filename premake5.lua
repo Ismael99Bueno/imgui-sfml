@@ -5,8 +5,8 @@ project "imgui-sfml"
    kind "StaticLib"
    defines "GL_SILENCE_DEPRECATION"
 
-   targetdir("../bin/" .. outputdir)
-   objdir("../build/" .. outputdir .. "/%{prj.name}")
+   targetdir("bin/" .. outputdir)
+   objdir("build/" .. outputdir .. "/%{prj.name}")
 
    files {"src/**.cpp", "include/**.h"}
 
