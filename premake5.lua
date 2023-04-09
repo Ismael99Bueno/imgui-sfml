@@ -1,7 +1,7 @@
 project "imgui-sfml"
    language "C++"
    cppdialect "C++17"
-   staticruntime "on"
+   
    kind "StaticLib"
    defines "GL_SILENCE_DEPRECATION"
 
