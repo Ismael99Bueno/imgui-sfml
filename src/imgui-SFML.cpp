@@ -815,7 +815,7 @@ bool UpdateFontTexture() {
         return false;
     }
 #else
-    if (!texture.create(width, height)) {
+    if (!texture.create((unsigned int)width, (unsigned int)height)) {
         return false;
     }
 #endif
@@ -1283,7 +1283,7 @@ void RenderDrawLists(ImDrawData* draw_data) {
                (GLsizei)last_viewport[3]);
     glScissor(last_scissor_box[0], last_scissor_box[1], (GLsizei)last_scissor_box[2],
               (GLsizei)last_scissor_box[3]);
-    glShadeModel(last_shade_model);
+    glShadeModel((GLenum)last_shade_model);
     glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, last_tex_env_mode);
 
 #ifdef GL_VERSION_ES_CL_1_1
@@ -1339,7 +1339,8 @@ void updateJoystickButtonState(ImGuiIO& io) {
     for (int i = 0; i < static_cast<int>(sf::Joystick::ButtonCount); ++i) {
         ImGuiKey key = s_currWindowCtx->joystickMapping[i];
         if (key != ImGuiKey_None) {
-            bool isPressed = sf::Joystick::isButtonPressed(s_currWindowCtx->joystickId, i);
+            bool isPressed =
+                sf::Joystick::isButtonPressed(s_currWindowCtx->joystickId, (unsigned int)i);
             if (s_currWindowCtx->windowHasFocus || !isPressed) {
                 io.AddKeyEvent(key, isPressed);
             }
