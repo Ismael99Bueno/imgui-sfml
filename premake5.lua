@@ -3,6 +3,7 @@ project "imgui-sfml"
    cppdialect "C++17"
    
    kind "StaticLib"
+   staticruntime "off"
    defines "GL_SILENCE_DEPRECATION"
 
    targetdir("bin/" .. outputdir)
