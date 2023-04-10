@@ -757,7 +757,9 @@ void Render(sf::RenderTarget& target) {
     target.resetGLStates();
     target.pushGLStates();
     ImGui::Render();
-    // RenderDrawLists(ImGui::GetDrawData());
+#ifdef RENDER_DRAW_LISTS
+    RenderDrawLists(ImGui::GetDrawData());
+#endif
     target.popGLStates();
 }
 

@@ -15,3 +15,6 @@ project "imgui-sfml"
    files {"src/**.cpp", "include/**.h"}
 
    includedirs "../**/include"
+
+   filter "system:macosx"
+      defines "RENDER_DRAW_LISTS"
